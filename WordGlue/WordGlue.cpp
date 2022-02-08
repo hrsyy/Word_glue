@@ -9,4 +9,7 @@ int main()
 	Glue glue;
 
 	glue.GetFirstWord();
+	glue.TruncateWord();
+	glue.GetSecondWord();
+	glue.GLUEWORD();
 }

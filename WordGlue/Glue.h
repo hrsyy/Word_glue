@@ -8,20 +8,17 @@
 class Glue
 {
 public:
-	//glue(){}
-
-	//void OpenFile();
-	//void CloseFile();
 	int GenerateNumber();
 	void TruncateWord();
 	void GetFirstWord();
-	void GetDesiredString(std::fstream& dictionary_file);
+	void GetSecondWord();
+	void GetDesiredString(std::fstream& dictionary_file, std::string& Word);
+	void print();
+	void GLUEWORD();
 
 private:
-	int WordSize, CuttedPartSize, MaxStringLength, MaxDictionaryLength;
+	int WordSize, ConnectedWordCuttedPartSize, ConnectingWordCuttedPartSize, MaxStringLength, MaxDictionaryLength, PassSigns;
+	const int maxLength = 67773;
 
-	std::string CuttedPart, ConnectedWord, ConnectingWord;
-
-	//std::fstream dictionary_file;
-
+	std::string ConnectedWordCuttedPart, ConnectingWordCuttedPart, ConnectedWord, ConnectingWord;
 };
