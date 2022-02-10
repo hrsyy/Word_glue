@@ -46,25 +46,28 @@ void Glue::GetFirstWord()
 	{
 		std::cout << "FILE IS NOT OPEN!";
 	}
+
+	TruncateWord(ConnectedWord, ConnectedWordCuttedPart, ConnectedWordCuttedPartSize);
 }
 
 
-void Glue::TruncateWord()
+void Glue::TruncateWord(std::string& Word, std::string& WordShort, int& WordShotSize)
 {
-	WordSize = ConnectedWord.size();
+	WordSize = Word.size();
 
 	if (WordSize < 10)
 	{
-		ConnectedWordCuttedPartSize = WordSize / 2;
+		WordShotSize = WordSize / 2;
 	}
 	else
 	{
-		ConnectedWordCuttedPartSize = 4;
+		WordShotSize = 4;
 	}
 
-	PassSigns = WordSize - ConnectedWordCuttedPartSize;
-	ConnectedWordCuttedPart = ConnectedWord.substr(PassSigns);
+	PassSigns = WordSize - WordShotSize;
+	WordShort = Word.substr(PassSigns);
 }
+
 
 //In progress
 void Glue::GetSecondWord()
@@ -73,13 +76,14 @@ void Glue::GetSecondWord()
 
 	if (dictionary_file.is_open())
 	{
-		std::cout << "File is open!\n";
-
 		for (int i = 0; i != maxLength; i++)
 		{
 			GetDesiredString(dictionary_file, ConnectingWord);
 			
+
 			ConnectingWordCuttedPart = ConnectingWord.substr(0, ConnectedWordCuttedPartSize);
+
+
 			
 			if (ConnectedWordCuttedPart.std::string::compare(ConnectingWordCuttedPart))
 			{
@@ -91,21 +95,7 @@ void Glue::GetSecondWord()
 			}
 		}
 
-
-		WordSize = ConnectingWord.size();
-
-		if (WordSize < 10)
-		{
-			ConnectingWordCuttedPartSize = WordSize / 2;
-		}
-		else
-		{
-			ConnectingWordCuttedPartSize = 4;
-		}
-
-		PassSigns = WordSize - ConnectingWordCuttedPartSize;
-		ConnectingWordCuttedPart = ConnectingWord.substr(PassSigns);
-		//ConnectingWordCuttedPart = ConnectingWord.substr(ConnectedWordCuttedPartSize);
+		TruncateWord(ConnectingWord, ConnectingWordCuttedPart, ConnectingWordCuttedPartSize);
 	}
 	else
 	{
@@ -114,19 +104,14 @@ void Glue::GetSecondWord()
 }
 
 
-void Glue::print()
-{
-	std::cout << ConnectedWord << "\t" << ConnectedWordCuttedPart << std::endl;
-
-	std::cout << ConnectingWord << "\t" << ConnectingWordCuttedPart << std::endl;
-	
-}
-
-
-
 void Glue::GLUEWORD()
 {
-	ConnectedWord += ConnectingWordCuttedPart;
+	if (ConnectedWordCuttedPart.std::string::compare(ConnectingWord))
+	{
 
-	print();
+		std::cout << ConnectedWord << "\t" << ConnectedWordCuttedPart << std::endl;
+		std::cout << ConnectingWord << "\t" << ConnectingWordCuttedPart << std::endl;
+		ConnectedWord += ConnectingWordCuttedPart;
+		std::cout << ConnectedWord << std::endl << std::endl;
+	}
 }

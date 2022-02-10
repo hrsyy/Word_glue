@@ -6,10 +6,9 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	Glue glue;
-
-	glue.GetFirstWord();
-	glue.TruncateWord();
-	glue.GetSecondWord();
-	glue.GLUEWORD();
+	for (int i = 0; i < 5; i++)
+	{
+		Glue glue;
+		glue.GLUEWORD();
+	}
 }
