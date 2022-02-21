@@ -1,6 +1,6 @@
 #include "Glue.h"
 
-
+//Generates a number from 0 to 67773
 int Glue::GenerateNumber()
 {
 	std::random_device rd;
@@ -11,6 +11,8 @@ int Glue::GenerateNumber()
 }
 
 
+//Skips the required number of lines in the file in GetFirstWord()
+//Participates in the search for the required word in GetSecondWord()
 void Glue::GetDesiredString(std::fstream& dictionary_file, std::string& Word)
 {
 	char* desiredString = new char[MaxStringLength];
@@ -79,11 +81,8 @@ void Glue::GetSecondWord()
 		for (int i = 0; i != maxLength; i++)
 		{
 			GetDesiredString(dictionary_file, ConnectingWord);
-			
 
 			ConnectingWordCuttedPart = ConnectingWord.substr(0, ConnectedWordCuttedPartSize);
-
-
 			
 			if (ConnectedWordCuttedPart.std::string::compare(ConnectingWordCuttedPart))
 			{
