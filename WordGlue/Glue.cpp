@@ -1,5 +1,13 @@
 #include "Glue.h"
 
+/*TODO*/
+/*
+// Основные проблемы
+ * Медленная работа 
+ * Отсутствует описание работы некоторых модулей 
+ * При усппешном выводе "съедается" первый  элемент второго слова
+*/
+
 //Generates a number from 0 to 67773
 int Glue::GenerateNumber()
 {
@@ -53,6 +61,7 @@ void Glue::GetFirstWord()
 }
 
 
+//Reduces the number of characters in a word depending on the size of the word
 void Glue::TruncateWord(std::string& Word, std::string& WordShort, int& WordShotSize)
 {
 	WordSize = Word.size();
@@ -83,7 +92,7 @@ void Glue::GetSecondWord()
 			GetDesiredString(dictionary_file, ConnectingWord);
 
 			ConnectingWordCuttedPart = ConnectingWord.substr(0, ConnectedWordCuttedPartSize);
-			
+
 			if (ConnectedWordCuttedPart.std::string::compare(ConnectingWordCuttedPart))
 			{
 				continue;
@@ -94,7 +103,18 @@ void Glue::GetSecondWord()
 			}
 		}
 
-		TruncateWord(ConnectingWord, ConnectingWordCuttedPart, ConnectingWordCuttedPartSize);
+		if (!dictionary_file.eof())
+		{
+			TruncateWord(ConnectingWord, ConnectingWordCuttedPart, ConnectingWordCuttedPartSize);
+
+			GLUEWORD();
+
+			dictionary_file.close();
+		}
+		else
+		{
+			std::cout << "No result let's try again!";
+		}
 	}
 	else
 	{

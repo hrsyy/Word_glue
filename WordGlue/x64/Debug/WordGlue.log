@@ -1,3 +1,3 @@
 ﻿  Glue.cpp
-E:\workflow\CPP\WordGlue\WordGlue\Glue.cpp(56,24): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+E:\workflow\CPP\WordGlue\WordGlue\Glue.cpp(67,24): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
   WordGlue.vcxproj -> E:\workflow\CPP\WordGlue\x64\Debug\WordGlue.exe
